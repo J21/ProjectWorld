@@ -1,11 +1,11 @@
-CREATE DATABASE burgers_db;
-USE burgers_db;
+CREATE DATABASE login_db;
+USE login_db;
 
-CREATE table burgers
+CREATE table account
 (
 	id int NOT NULL AUTO_INCREMENT,
-	burger_name VARCHAR(255) NOT NULL,
-	devoured BOOLEAN,
-	now TIMESTAMP,
+	user_name VARCHAR(255) NOT NULL,
+	password VARCHAR(255) NOT NULL,
+	email VARCHAR(255) NOT NULL
 	PRIMARY KEY(id)
 );
