@@ -9,3 +9,11 @@ CREATE table account
 	email VARCHAR(255) NOT NULL
 	PRIMARY KEY(id)
 );
+
+CREATE table history
+(  
+	id_number int NOT NULL AUTO_INCREMENT,
+	city_name VARCHAR(255) NOT NULL,
+	country_name VARCHAR(255) NOT NULL,
+	FOREIGN KEY(id) REFERENCES account(id)
+);
