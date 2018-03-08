@@ -9,7 +9,7 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 
-app.set('port', (process.env.PORT || 3000));
+app.set('port', (process.env.PORT || 3005));
 
 
 // First page when user goes to website

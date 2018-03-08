@@ -1,38 +1,130 @@
-{{!-- <h1>Log in and Sign up</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cesium Starter App</title>
+  <script src="ThirdParty/Cesium/Cesium.js"></script>
 
-<h2>World animation with world rotating in space</h2>
+  <!-- {{!-- jquery --}} -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 
-<a href="/home">World</a> --}}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<nav>
-    <div class="nav-wrapper" style="background-color: transparent">
-      <a href="#" class="brand-logo">Hello World</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">What's Good</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="/home">Explore</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/developers">Developers</a></li>
-        <li><a href="/logout">Log Out</a></li>
-      </ul>
-      {{!-- <ul class="side-nav" id="mobile-demo">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
-      </ul> --}}
+  <style>
+      @import url(ThirdParty/Cesium/Widgets/widgets.css);
+      html, body, #cesiumContainer {
+          width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+      }
+
+      #controlPanel {
+  position: absolute;
+  top: 0px;
+  left: 5px;
+  background: transparent;
+  padding: 5px 8px;
+  border-radius: 5px;
+}
+
+#controlPanel2 {
+  position: absolute;
+  top: 160px;
+  left: 5px;
+  background: rgba(42, 42, 42, 0.8);
+  padding: 5px 8px;
+  border-radius: 5px;
+}
+
+.w3-button {
+  position: absolute;
+  top: 160px;
+  left: 5px;
+  background: rgba(42, 42, 42, 0.8);
+  padding: 5px 8px;
+  border-radius: 5px;
+}
+
+#myTopnav {
+  position: absolute;
+  top: 60px;
+  left: 5px;
+  background: (42, 42, 42, 0.8);
+  padding: 5px 8px;
+}
+
+html, body, div, p, h1, h2 {font-family: Verdana, "Lucida Sans", sans-serif; color: #000;}
+html, body, div, p  {font-weight: normal;}
+body {background-color: #fff;}
+
+/* h1, h2, h3 {font-weight: bold; color: #087;}
+sup {font-weight: normal;}
+
+html, body, div, p  {font-size: 12px;}
+h1 {font-size: 20px; margin-top: 30px;}
+h2 {font-size: 16px; clear: left;}
+h3 {font-size: 14px; clear: left;}
+
+#sidebar {font-size: 10px; text-align: right; display: flex; padding: 0px 10px; 
+    float: right; margin-left: 15px; margin-right: 0px;}
+#sidebar p {margin-top: 0px; font-size: 10px;}
+#sidebar img {display: inline-block; float: none; padding-right: 0px;}
+#pole p {font-size: 14px;}
+#pole, #mainline, #json, #http, #sidebar, #error, #paging1, #paging2 
+    {display: none;}
+
+#term {width: 100%;}
+#logo {padding: 15px; float: right; border-left: 2px solid #ccc;}
+#query {float: left;}
+
+img {vertical-align: top; float: left; margin-right: 10px; margin-bottom: 10px;}
+p.images img {float: none;}
+p.relatedSearches {clear: none;}
+#logo p, p.news, p.webPages, p.images {clear: left;}
+
+a[href="#"]:link {color: blue;}
+a[href="#"]:visited {color: blue;}
+
+h3 a:visited {color: #087 !important;}
+h3 a:link {color: #087 !important;} */
+
+  </style>
+</head>
+<body>
+  <div id="cesiumContainer"></div>
+  <script src="Source/App.js"></script>
+
+  <!-- <div class="topnav" id="myTopnav">
+      <a href="#home" class="active">Home</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+    </div> -->
+          
+
+  <div id="controlPanel">
+      <div class="topnav" id="myTopnav">
+          <a href="#home" class="active">Home</a>
+          <a href="#news">News</a>
+          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+        </div>
     </div>
-  </nav>
 
-<div class="circle">
-    <div class="globe"></div>
-</div>
+    <button class="w3-button w3-blue" onclick="document.getElementById('controlPanel2').style.display='block'">Weather</button>
+    <div id="controlPanel2">
+        <span onclick="this.parentElement.style.display='none'"
+        class="w3-button w3-display-topright">X</span>
+        <!-- {{!-- weather --}} -->
+        <input id = 'city'></input>
+        <button id = 'goto'>Go To...</button>
+        <div id = 'show' style="color:blue">places</div>
+      </div>
 
-<div class="container">
+      <div class="container">
         <div id="query"><!-- query controls including search field and options -->
-            {{!-- <h1>Bing Web Search API demo</h2>     --}}
+            <h1>Bing Web Search API demo</h2>    
         
-                {{!-- <input type="text" name="query" id="term" placeholder="Search the Web" autocomplete=off>
+                <input type="text" name="query" id="term" placeholder="Search the Web" autocomplete=off>
         
                 <p>Promote
             <input type=checkbox name="what" id="webpages" value="webpages">
@@ -106,111 +198,35 @@
 
           <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
               bingSearchOptions(this), getSubscriptionKey())">
-         --}}
+          
+        
 
-<style>
-    body, html {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        background: url("https://s3-cdn.pledgemusic.com/artists/000/003/758/heros/desktop.jpg?1488337587");
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
 
-    body {
-        text-align: center;
-    }
+      <script>
+        $(document).ready(function() {
+        $("#goto").click(function(){
+            var city = $('#city').val();
+            var key = 'dee84fb58b4bd91a81ff801a553a9e0c';
 
-    li {
-        color: darkcyan;
-        font-family: cursive;
-        font-size: 20px; 
-    }
+            $.ajax({
+                url: 'http://api.openweathermap.org/data/2.5/weather',
+                dataType: 'json',
+                type: 'GET',
+                data: {q: city, appid: key, units: 'imperial'},
 
-    nav {
-        background-color: transparent;
-    }
+                success: function(data){
+                    var wf = '';
+                    $.each(data.weather, function(index, val) {
+                        wf += '<p><b>' + data.name + '</b>' + data.main.temp + '&deg;F' + '|' + val.main + ' , ' + val.description   //+ '</b><img scr=' + val.icon + 
+                    });
+                    $('#show').html(wf);
+                }
+            });
+        });
+      });
 
-    .circle {
-        width: 220px;
-        height: 220px;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        margin: auto;
-    }
 
-    .globe {
-        width: 256px;
-        height: 256spx;  /*dont remove ( s ) in spx, makes the globe rounder*/
-        background: lightblue;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        margin: auto;
-        border-radius: 50%;   /*makes the square into a circle shape*/
-        box-shadow: -30px -20px 0 0 rgba(0, 0, 0, .1) inset;  /*gives shadpw to circle*/
-        /*box-shadow: -70px -30px 0 0 rgba(0, 0, 0, .1) inset;*/
-        background: url("https://img5.picload.org/image/lwwgwlo/oneday.gif");   /*any gif/image from google of earth*/
-        background-size: cover;                                     /*go back to image of day and night gif*/
-                                                     /*('https://img5.picload.org/image/lwwgwlo/oneday.gif')*/
-
-        -webkit-animation: hello-world 18s infinite linear;
-    }
-
-    @-webkit-keyframes hello-world {
-        from {
-            background-position: -256px center;
-        }
-        to {
-            background-position: left center;  /*try adding new image, keeps skipping when rotating*/
-        }                                           /* cut sizes of images by half..  */
-    }
-
-    html, body, div, p, h1, h2 {font-family: Verdana, "Lucida Sans", sans-serif; color: #000;}
-html, body, div, p  {font-weight: normal;}
-body {background-color: #fff;}
-
-/* h1, h2, h3 {font-weight: bold; color: #087;}
-sup {font-weight: normal;}
-
-html, body, div, p  {font-size: 12px;}
-h1 {font-size: 20px; margin-top: 30px;}
-h2 {font-size: 16px; clear: left;}
-h3 {font-size: 14px; clear: left;}
-
-#sidebar {font-size: 10px; text-align: right; display: flex; padding: 0px 10px; 
-    float: right; margin-left: 15px; margin-right: 0px;}
-#sidebar p {margin-top: 0px; font-size: 10px;}
-#sidebar img {display: inline-block; float: none; padding-right: 0px;}
-#pole p {font-size: 14px;}
-#pole, #mainline, #json, #http, #sidebar, #error, #paging1, #paging2 
-    {display: none;}
-
-#term {width: 100%;}
-#logo {padding: 15px; float: right; border-left: 2px solid #ccc;}
-#query {float: left;}
-
-img {vertical-align: top; float: left; margin-right: 10px; margin-bottom: 10px;}
-p.images img {float: none;}
-p.relatedSearches {clear: none;}
-#logo p, p.news, p.webPages, p.images {clear: left;}
-
-a[href="#"]:link {color: blue;}
-a[href="#"]:visited {color: blue;}
-
-h3 a:visited {color: #087 !important;}
-h3 a:link {color: #087 !important;} */
-
-</style>
-
-<script>
-     // cookie names for data we store
+      // cookie names for data we store
 // YOUR API KEY DOES NOT GO IN THIS CODE; don't paste it in.
 API_KEY_COOKIE   = "3f15d426758f4479a420a6ef80b0119e";
 CLIENT_ID_COOKIE = "33cff74d50294b8c8880d91b487b62fb";
@@ -614,5 +630,8 @@ function doPrevSearchPage() {
     alert("You're already at the beginning!");
     return false;
 }
-</script>
 
+      </script>
+
+</body>
+</html>
