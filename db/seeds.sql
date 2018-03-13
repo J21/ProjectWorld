@@ -1,1 +1,0 @@
-INSERT INTO account (user_name, password, email) VALUES ('J21', 'Jonster21', 'jonster1992@gmail.com');
