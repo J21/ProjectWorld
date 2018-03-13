@@ -1,0 +1,55 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;          /*  https://images.pexels.com/photos/176851/pexels-photo-176851.jpeg?w=940&h=650&auto=compress&cs=tinysrgb */
+    background: url("https://images.pexels.com/photos/813269/pexels-photo-813269.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h2, p {
+    color: blueviolet
+}
+
+
+/* spinning globe world */
+
+.circle {
+    width: 220px;
+    height: 220px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.globe {
+    width: 256px;
+    height: 256spx;  /*dont remove ( s ) in spx, makes the globe rounder*/
+    background: lightblue;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    border-radius: 50%;   /*makes the square into a circle shape*/
+    box-shadow: -30px -20px 0 0 rgba(0, 0, 0, .1) inset;  /*gives shadpw to circle*/
+    /*box-shadow: -70px -30px 0 0 rgba(0, 0, 0, .1) inset;*/
+    background: url("https://img5.picload.org/image/lwwgwlo/oneday.gif");   /*any gif/image from google of earth*/
+    background-size: cover;                                     /*go back to image of day and night gif*/
+                                                 /*('https://img5.picload.org/image/lwwgwlo/oneday.gif')*/
+
+    -webkit-animation: hello-world 18s infinite linear;
+}
+
+@-webkit-keyframes hello-world {
+    from {
+        background-position: -256px center;
+    }
+    to {
+        background-position: left center;  /*try adding new image, keeps skipping when rotating*/
+    }                                           /* cut sizes of images by half..  */
+}

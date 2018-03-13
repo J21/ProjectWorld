@@ -1,0 +1,19 @@
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: navy;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: blue;
+}
+
+.nav.navbar .navbar-default {
+    background-color: blue;
+}
+
+.navbar-collapse .collapse {
+    background-color: transparent
+}
+
+Navbar default collapseOnSelect {
+    color: black;
+}

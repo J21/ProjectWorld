@@ -1,32 +1,24 @@
 var express = require('express');
 var path = require('path');
-var exphbs = require('express-handlebars');
-
+var PORT = process.env.PORT || 3001;
 var app = express();
 
-app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
-
-app.set('port', (process.env.PORT || 3005));
-
-
-// First page when user goes to website
-app.get('/', function(req, res){
-  res.render('first', {
-    content: 'First Page',    // put {{content}}  to index, it will show string text
-    published: true     //conditionals
-  });
-});
-
-
-app.get('/home', function(req, res){
-  res.render('home');
-});
+app.use(express.static("client/build"));
 
 
 
-app.listen(app.get('port'), function(){
-  console.log('Server started on Port ' + app.get('port'));
+
+//send every request to the React app
+//define any API routes before this runs
+// app.get("*", function(req, res) {
+//   res.sendFile(path.join(__dirname, "./client/public/build/index.html"));
+// });
+
+
+app.listen(PORT, function(){
+  console.log('Server started on Port ' + PORT);
 });
