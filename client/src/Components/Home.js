@@ -9,7 +9,7 @@ export default class Home extends Component {
             <div>
                 <Grid>
                     {/* <Jumbotron> */}
-                        <h2>What's Up World CHNAGE</h2>
+                        <h2>What's Up World</h2>
                         <p>News and Weather from Cities around the Globe</p>
                     {/* </Jumbotron> */}
 
