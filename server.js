@@ -3,15 +3,13 @@ var path = require('path');
 var PORT = process.env.PORT || 3001;
 var app = express();
 
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"));
-// }
-
-app.use(express.static("client/build"));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 
-//send every request to the React app
-//define any API routes before this runs
+// send every request to the React app
+// define any API routes before this runs
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
