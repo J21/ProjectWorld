@@ -23,7 +23,7 @@ export default class News extends Component {
   
   const  API_KEY = "dee84fb58b4bd91a81ff801a553a9e0c"
   
-  const api_call = await fetch (`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=imperial`)
+  const api_call = await fetch (`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=imperial`)
   
     const data = await api_call.json();
     console.log(data)
