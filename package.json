@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/J21/ProjectWorld#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "compression": "^1.7.2",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "reactstrap": "^4.8.0"
   }
 }
