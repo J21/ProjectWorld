@@ -93,47 +93,59 @@ export default class News extends Component {
        </div>
        </div>
        </div> */}
+           
 
 
+    
+                         
 
-       
+    
+
    
          <div className ="wrapper">
           <div className ="main">
             <div className= "container">
              <div className = "row">
-              <div className = "col-xs-5  title-container">        
-                      
-
-                </div>
-                <div className = "col-xs-7  form-container">   
-         
-                                           
-                        <Form
+             <div className="form-container col-12">        
+                           <Form
                          getInfo={this.getInfo}/>
-                          <Weather
+
+                           <div className="row">
+                
+                <div className="col-xs-3 weather-container">   
+
+         
+                         <Weather
                           temperature= {this.state.temperature}
                           city= {this.state.city}
                           humidity= {this.state.humidity}
                           description= {this.state.description}
                            error={this.state.error}
                            /> 
-
+</div>
+<div className="col-xs-9">
                            {this.state.articles.map(article =>(
                            <NewsArticle
                            author={article.author}
                            description={article.description}
                            publishedAt={article.publishedAt}
                            key={article.publishedAt}
-                          //  source={article.source}
-                          //  title={article.title}
-                          //  url={article.url}
-                          //  urlToImage={article.urlToImage}
+                           source={article.source.name}
+                           title={article.title}
+                           url={article.url}
+                           urlToImage={article.urlToImage}
                            />
 
                             ))}
                   
 
+</div>
+                                    
+
+       
+       </div>                     
+                       
+                         
                            
 
                         </div>
