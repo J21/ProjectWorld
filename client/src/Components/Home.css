@@ -1,10 +1,12 @@
 body, html {
-    height: 100%;
-    margin: 0;
-    padding: 0;          /*  https://images.pexels.com/photos/176851/pexels-photo-176851.jpeg?w=940&h=650&auto=compress&cs=tinysrgb */
-    background: url("https://images.pexels.com/photos/813269/pexels-photo-813269.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");
-    background-repeat: no-repeat;
+            /*  https://images.pexels.com/photos/176851/pexels-photo-176851.jpeg?w=940&h=650&auto=compress&cs=tinysrgb */
+    background: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/jVhILry/blue-abstract-presentation-background-world-map-4k_n1xaphtfx__F0000.png") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
+  
+    
 }
 
 h2, p {

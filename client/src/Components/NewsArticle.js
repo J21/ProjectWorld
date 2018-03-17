@@ -1,29 +1,29 @@
 import React from 'react';
-
+import { Card, CardImg, CardText,
+    CardTitle, CardSubtitle, Button } from 'reactstrap';
 
 const NewsArticle = props=>(
-
-    < div >
-
+    
+    <Card>
+    {props.urlToImage && <CardImg style={{width: '100px', height: 'auto'}} className="img-responsive" src={ props.urlToImage} alt="pic" />}
+<Card body>
+    {console.log(props)}
     <p> { props.author} </p>
     <p> { props.description} </p>
     <p> { props.publishedAt} </p>
-    {/* <p> { props.source} </p>
     <p> { props.title} </p>
-    <p> { props.url} </p>
-    <p> { props.urlToImage} </p>
-     */}
+    <p> <a href={ props.url} target="_blank">URL TO ARTICLE</a> </p>
+
+
+     
 
 
 
 
 
 
-
-
-
-
-    </div>
+</Card>
+    </Card>
 
 
 
