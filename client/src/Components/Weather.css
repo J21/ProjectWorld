@@ -1,0 +1,5 @@
+.weather__info{
+    position: relative;
+    left: auto;
+    border: 3px solid #73AD21;
+}

@@ -16,15 +16,16 @@ export default class CustomNavbar extends Component {
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav pullRight>
-                    <NavItem eventKey={1} componentClass={Link} href='/' to='/'>
-                        Home
+                    <NavItem eventKey={1} componentClass={Link} href='/Login' to='/Login'>
+                        Login
                     </NavItem>
-
                     <NavItem eventKey={2} componentClass={Link} href='/News' to='/News'>
                         News
                     </NavItem>
-
-                    <NavItem eventKey={3} componentClass={Link} href='/dev' to='/dev'>
+                    <NavItem eventKey={3} componentClass={Link} href='/Saved' to='/Saved'>
+                        Saved Articles
+                    </NavItem>
+                    <NavItem eventKey={4} componentClass={Link} href='/dev' to='/dev'>
                         Dev
                     </NavItem>
                     </Nav>
