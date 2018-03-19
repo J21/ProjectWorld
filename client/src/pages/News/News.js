@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import './News.css'
-import Form  from "./Form";
-import Weather from "./Weather"
+import Form  from "../../Components/Form";
+import Weather from "../../Components/Weather";
 import axios from "axios"
-import NewsArticle from "./NewsArticle"
-import API from "../Utils/API"
+import NewsArticle from "../../Components/NewsArticle"
+import API from "../../Utils/API.js"
 export default class News extends Component {
   state={
     temperature:undefined,
@@ -96,6 +96,7 @@ export default class News extends Component {
      <div className="col-xs-9">
      {this.state.articles.map(article =>(
        <NewsArticle
+       id={article._id}
        author={article.author}
        description={article.description}
        publishedAt={article.publishedAt}
@@ -104,20 +105,13 @@ export default class News extends Component {
        title={article.title}
        url={article.url}
        urlToImage={article.urlToImage}
+       handleClick={this.handleArticleSave}
+       buttonText="Save Article"
        />
 
        ))}
-       
-
        </div>
-       
-
-       
        </div>                     
-       
-       
-       
-
        </div>
        </div>
        </div>

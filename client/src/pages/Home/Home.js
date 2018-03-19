@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
-import { Jumbotron, Grid, Row, Col, Image, Button } from 'react-bootstrap';
-import { Route, NavLink, HashRouter} from "react-router-dom";
-import Login from './Login.js';
+import { Grid} from 'react-bootstrap';
 import './Home.css';
 
 export default class Home extends Component {
@@ -18,7 +15,6 @@ export default class Home extends Component {
                     <div class="globe"></div>
                     </div>
                     <br/>
-                    <Button bsStyle="primary" href = "/Login">Sign In</Button>
                 </Grid>
             </div>
         )

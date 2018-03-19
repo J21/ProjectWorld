@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-import { Card, CardImg, CardText,
-    CardTitle, CardSubtitle, Button } from 'reactstrap';
+import React from 'react';
 import './Weather.css';
 
 class Weather extends  React.Component{

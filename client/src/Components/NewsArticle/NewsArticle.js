@@ -1,13 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Card, CardImg, CardText,
     CardTitle, CardSubtitle, Button } from 'reactstrap';
 import './NewsArticle.css';
-import API from '../Utils/API.js';
-import Save from './Save.js';
 
-const NewsArticle = props=>{
+function NewsArticle (props){
     return(
-        <div className = "article_info">
+    <div className = "article_info">
     <Card>
     <CardTitle> { props.title} </CardTitle>
     <CardSubtitle> { props.author} </CardSubtitle>
@@ -16,10 +14,11 @@ const NewsArticle = props=>{
     {console.log(props)}
     <CardText> { props.description} </CardText>
     <CardText> { props.publishedAt} </CardText>
-    <Button color = "info" href = {props.url}  target="_blank">Article</Button>
-    <Button color = "success" href = '/Save'>Save?</Button>
-    </Card>
-    </Card>
+    <Button color = "info" href = {props.url} target = "_blank">Article</Button>
+    <button onClick={() => props.handleClick(props._id)} className="btn btn-success">
+    {props.buttonText}
+    </button>
+    </Card></Card>
     </div>
     );
 }
